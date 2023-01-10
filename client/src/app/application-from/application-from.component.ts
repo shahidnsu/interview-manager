@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-application-from',
   templateUrl: './application-from.component.html',
@@ -21,9 +16,7 @@ export class ApplicationFromComponent {
     githubUserName: ['', Validators.required],
   });
 
-  onSubmit() {
-    console.warn(this.ApplicantForm.value);
-  }
+  onSubmit() { }
 
   get ApplicantFormControl() {
     return this.ApplicantForm.controls;
