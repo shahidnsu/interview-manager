@@ -4,15 +4,15 @@ exports.getApplicants = async (req, res) => {
   try {
     const applicants = await applicationsDb.getAllApplicants();
     res.status(200);
-    res.send(events);
+    res.send(applicants);
   } catch (e) {
     console.log("the error is ", e);
     res.status(500).send("cannot get the data");
   }
 };
-exports.postOneApplication = async (req, res) => {
+exports.postOne = async (req, res) => {
   try {
-    await applicationsDb.postOneApplication(req.body);
+    await applicationsDb.applyOneApplicant(req.body);
     res.status(200);
     res.send(req.body);
   } catch (error) {
