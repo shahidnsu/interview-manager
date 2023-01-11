@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SingleUserInfoComponent } from './single-user-info.component';
+import { SingleUserComponent } from './single-user.component';
 
-describe('SingleUserInfoComponent', () => {
-  let component: SingleUserInfoComponent;
-  let fixture: ComponentFixture<SingleUserInfoComponent>;
+describe('SingleUserComponent', () => {
+  let component: SingleUserComponent;
+  let fixture: ComponentFixture<SingleUserComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SingleUserInfoComponent ]
+      declarations: [ SingleUserComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SingleUserInfoComponent);
+    fixture = TestBed.createComponent(SingleUserComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,42 @@
+<section class="container mx-auto p-6 font-mono">
+  <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+    <div class="w-full overflow-x-auto">
+      <table class="w-full">
+        <thead>
+          <tr class="text-md tracking-wide text-left text-gray-900 bg-gray-100 border-b border-gray-600">
+            <th class="px-4 py-3">Name</th>
+            <th class="px-4 py-3">Email</th>
+            <th class="px-4 py-3">PhoneNumber</th>
+            <th class="px-4 py-3">Batch</th>
+            <th class="px-4 py-3">Applied Date</th>
+            <th class="px-4 py-3">Status</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white">
+          <tr *ngFor="let user of applicants" class="text-gray-700">
+            <td class="px-4 py-3 border">
+              <div class="flex items-center text-sm">
+                {{ user.firstName }}
+              </div>
+            </td>
+            <td class="px-4 py-3 text-ms border">
+              {{ user.email }}
+            </td>
+
+            <td class="px-3 py-3 text-sm border">{{ user.phoneNumber }}</td>
+            <td class="px-3 py-3 text-sm border">{{ user.batchName }}</td>
+            <td class="px-3 py-3 text-sm border">
+              {{ user.appliedDate | date }}
+            </td>
+
+            <td class="px-4 py-3 text-xs border">
+              <span class="px-2 py-1 leading-tight text-blue-600 bg-green-100 rounded-sm">
+                {{ user.status }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

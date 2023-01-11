@@ -8,9 +8,9 @@ import { ApplicationFromComponent } from './application-from/application-from.co
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SucessPageComponent } from './sucess-page/sucess-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { NavbarComponent } from './Dashboard/navbar/navbar.component';
-import { UserTableComponent } from './Dashboard/user-table/user-table.component';
-import { SingleUserInfoComponent } from './Dashboard/single-user-info/single-user-info.component';
+import { UserTableComponent } from './user-table/user-table.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SingleUserComponent } from './single-user/single-user.component';
 
 @NgModule({
   declarations: [
@@ -19,9 +19,9 @@ import { SingleUserInfoComponent } from './Dashboard/single-user-info/single-use
     LoginPageComponent,
     SucessPageComponent,
     DashboardComponent,
-    NavbarComponent,
     UserTableComponent,
-    SingleUserInfoComponent,
+    NavbarComponent,
+    SingleUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,4 +32,4 @@ import { SingleUserInfoComponent } from './Dashboard/single-user-info/single-use
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

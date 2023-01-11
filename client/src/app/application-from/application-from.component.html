@@ -59,12 +59,12 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
           </svg>
-          <input class="pl-2 outline-none border-none" type="email" name="" id="" formControlName="Email"
+          <input class="pl-2 outline-none border-none" type="email" name="" id="" formControlName="email"
             placeholder="Email Address" />
         </div>
         <div class="m-2 flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3 rounded-full" *ngIf="
-            ApplicantFormControl.Email.invalid &&
-            ApplicantFormControl.Email.touched
+            ApplicantFormControl.email.invalid &&
+            ApplicantFormControl.email.touched
           ">
           <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
             <path
@@ -123,7 +123,7 @@
 
           <label class="text-gray-400" for="cars">Batch you are applying</label>
 
-          <select name="" class="pl-2 outline-none border-none text-center" id="" formControlName="BatchName">
+          <select name="" class="pl-2 outline-none border-none text-center" id="" formControlName="batchName">
             <option value="Feb">Febuary</option>
             <option value="Mar">March</option>
             <option value="April">April</option>

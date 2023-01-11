@@ -14,27 +14,37 @@ export class ApplicationFromComponent {
   //
   //
   isRedirect = 0;
-  applicant: Applicant[] = [];
+  applicants: Applicant[] = [];
+
   ApplicantForm = this.Builder.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    Email: ['', Validators.required],
+    email: ['', Validators.required],
     phoneNumber: ['', Validators.required],
     githubUserName: ['', Validators.required],
-    BatchName: ['', Validators.required],
+    batchName: ['', Validators.required],
   });
   ngOnInit(): void {
     this.getAll();
   }
   getAll(): void {
     this.Api.getAllApplicants().subscribe(
-      (applicant) => (this.applicant = applicant)
+      (applicants) => (this.applicants = applicants)
     );
+  }
+
+  Addone(): void {
+    console.log('before  addone', this.ApplicantForm.value);
+    this.Api.addApplicant(this.ApplicantForm.value).subscribe((applicant) =>
+      this.applicants.push(applicant)
+    );
+    console.log('from addone function');
   }
   onSubmit() {
     this.isRedirect = 1;
-    console.log(this.isRedirect);
-    console.log(this.applicant);
+    this.Addone();
+    console.log(this.applicants);
+    console.log('from on submit');
   }
 
   get ApplicantFormControl() {
