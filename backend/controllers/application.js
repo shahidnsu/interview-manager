@@ -5,8 +5,8 @@ exports.getApplicants = async (req, res) => {
     const applicants = await applicationsDb.getAllApplicants();
     res.status(200);
     res.send(applicants);
-  } catch (e) {
-    console.log("the error is ", e);
+  } catch (error) {
+    console.log("the error is ", error);
     res.status(500).send("cannot get the data");
   }
 };
@@ -18,5 +18,47 @@ exports.postOne = async (req, res) => {
   } catch (error) {
     console.log("error is:", error);
     res.status(500).send("Data could not be saved");
+  }
+};
+exports.getOneApplicant = async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    console.log(id);
+    const single = await applicationsDb.findOneApplicant(id);
+    res.status(200);
+    res.send(single);
+  } catch (error) {
+    console.log("error is: ", error);
+    res.status(500).send("Data could not be saved");
+  }
+};
+exports.createApplicant = async (req, res) => {
+  try {
+    const {
+      batchName,
+      email,
+      githubUserName,
+      phoneNumber,
+      firstName,
+      lastName,
+    } = req.body;
+
+    const appliedDate = new Date();
+    const deatils = {
+      email,
+      githubUserName,
+      phoneNumber,
+      firstName,
+      lastName,
+      appliedDate,
+      batchName,
+    };
+    const result = await applicationsDb.createApplication(deatils);
+    res.status(200);
+    res.send(result);
+  } catch (error) {
+    res.status(500);
+    console.log("error is ", error);
   }
 };
