@@ -7,6 +7,7 @@ export interface Applicant {
   batchName: string;
   appliedDate?: Date;
   status: string;
+  githubUserName: String;
 }
 export interface postApplicant {
   firstName: string;

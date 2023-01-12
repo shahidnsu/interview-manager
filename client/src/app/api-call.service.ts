@@ -9,10 +9,12 @@ import { Applicant, postApplicant } from './ApplicantInterface';
 export class ApiCallService {
   rootUrl = 'http://localhost:3000/all';
   createUrl = 'http://localhost:3000/all/new';
-
+  value: any;
   constructor(private http: HttpClient) { }
   getAllApplicants(): Observable<Applicant[]> {
-    return this.http.get<Applicant[]>(this.rootUrl);
+    this.value = this.http.get<Applicant[]>(this.rootUrl);
+    console.log(this.value);
+    return this.value;
   }
   addApplicant(applicant: any): Observable<Applicant> {
     console.log('add applicant', applicant);

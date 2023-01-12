@@ -8,12 +8,13 @@
             <th class="px-4 py-3">Email</th>
             <th class="px-4 py-3">PhoneNumber</th>
             <th class="px-4 py-3">Batch</th>
+            <th class="px-4 py-3">GithubUserName</th>
             <th class="px-4 py-3">Applied Date</th>
             <th class="px-4 py-3">Status</th>
           </tr>
         </thead>
         <tbody class="bg-white">
-          <tr *ngFor="let user of applicants" class="text-gray-700">
+          <tr *ngFor="let user of filterValues" class="text-gray-700">
             <td class="px-4 py-3 border">
               <div class="flex items-center text-sm">
                 {{ user.firstName }}
@@ -25,6 +26,8 @@
 
             <td class="px-3 py-3 text-sm border">{{ user.phoneNumber }}</td>
             <td class="px-3 py-3 text-sm border">{{ user.batchName }}</td>
+
+            <td class="px-3 py-3 text-sm border">{{ user.githubUserName }}</td>
             <td class="px-3 py-3 text-sm border">
               {{ user.appliedDate | date }}
             </td>

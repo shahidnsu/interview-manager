@@ -24,27 +24,16 @@ export class ApplicationFromComponent {
     githubUserName: ['', Validators.required],
     batchName: ['', Validators.required],
   });
-  ngOnInit(): void {
-    this.getAll();
-  }
-  getAll(): void {
-    this.Api.getAllApplicants().subscribe(
-      (applicants) => (this.applicants = applicants)
-    );
-  }
+  ngOnInit(): void { }
 
   Addone(): void {
-    console.log('before  addone', this.ApplicantForm.value);
     this.Api.addApplicant(this.ApplicantForm.value).subscribe((applicant) =>
       this.applicants.push(applicant)
     );
-    console.log('from addone function');
   }
   onSubmit() {
     this.isRedirect = 1;
     this.Addone();
-    console.log(this.applicants);
-    console.log('from on submit');
   }
 
   get ApplicantFormControl() {

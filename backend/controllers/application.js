@@ -35,29 +35,26 @@ exports.getOneApplicant = async (req, res) => {
 };
 exports.createApplicant = async (req, res) => {
   try {
-    // const {
-    //   batchName,
-    //   email,
-    //   githubUserName,
-    //   phoneNumber,
-    //   firstName,
-    //   lastName,
-    // } = req.body;
+    const {
+      batchName,
+      email,
+      githubUserName,
+      phoneNumber,
+      firstName,
+      lastName,
+    } = req.body;
 
-    const data = req.body;
-    console.log("hello form created post");
     const appliedDate = new Date();
-    // const deatils = {
-    //   email,
-    //   githubUserName,
-    //   phoneNumber,
-    //   firstName,
-    //   lastName,
-    //   appliedDate,
-    //   batchName,
-    // };
-    const result = await applicationsDb.createApplication(data);
-    console.log(data);
+    const deatils = {
+      email,
+      githubUserName,
+      phoneNumber,
+      firstName,
+      lastName,
+      appliedDate,
+      batchName,
+    };
+    const result = await applicationsDb.createApplication(deatils);
     res.status(200);
     res.send(result);
   } catch (error) {
