@@ -106,7 +106,7 @@ export class UserTableComponent {
     const one = this.applicants.filter(
       (applicants) => applicants.status === 'Round 2'
     );
-    this.roundOne = one;
+    this.roundTwo = one;
   }
 
   FinalRound() {
