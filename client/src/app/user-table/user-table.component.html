@@ -1,9 +1,13 @@
-<section class="container mx-auto p-6 font-mono">
+<div *ngIf="febBatchNumbers && janBatchNumers && marBatchNumbers">
+  <app-user-line-chart [febBatchNumbers]="febBatchNumbers" [uniqueMonths]="uniqueMonths"
+    [janBatchNumbers]="janBatchNumers" [marBatchNumbers]="marBatchNumbers"></app-user-line-chart>
+</div>
+<section class="container mx-auto p-6 font-sans">
   <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
     <div class="w-full overflow-x-auto">
       <table class="w-full">
         <thead>
-          <tr class="text-md tracking-wide text-left text-gray-900 bg-gray-100 border-b border-gray-600">
+          <tr class="text-xs tracking-normal text-left text-white bg-indigo-800 border-b border-indigo-700">
             <th class="px-4 py-3">Name</th>
             <th class="px-4 py-3">Email</th>
             <th class="px-4 py-3">PhoneNumber</th>
@@ -11,10 +15,11 @@
             <th class="px-4 py-3">GithubUserName</th>
             <th class="px-4 py-3">Applied Date</th>
             <th class="px-4 py-3">Status</th>
+            <th class="px-4 py-3">Details</th>
           </tr>
         </thead>
         <tbody class="bg-white">
-          <tr *ngFor="let user of filterValues" class="text-gray-700">
+          <tr *ngFor="let user of applicants" class="text-gray-700">
             <td class="px-4 py-3 border">
               <div class="flex items-center text-sm">
                 {{ user.firstName }}
@@ -36,6 +41,12 @@
               <span class="px-2 py-1 leading-tight text-blue-600 bg-green-100 rounded-sm">
                 {{ user.status }}
               </span>
+            </td>
+            <td class="px-4 py-3 text-xs border">
+              <button type="button"
+                class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 text-xs rounded-lg px-5 py-2.5 text-center mr-2 mb-2">
+                Edit
+              </button>
             </td>
           </tr>
         </tbody>

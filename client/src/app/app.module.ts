@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserTableComponent } from './user-table/user-table.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SingleUserComponent } from './single-user/single-user.component';
+import { UserLineChartComponent } from './user-line-chart/user-line-chart.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SingleUserComponent } from './single-user/single-user.component';
     UserTableComponent,
     NavbarComponent,
     SingleUserComponent,
+    UserLineChartComponent,
   ],
   imports: [
     BrowserModule,
