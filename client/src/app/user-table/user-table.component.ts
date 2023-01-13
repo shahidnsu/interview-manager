@@ -13,7 +13,9 @@ export class UserTableComponent {
   janBatch: Applicant[] = [];
   marBatch: Applicant[] = [];
   junBatch: Applicant[] = [];
-
+  roundOne: Applicant[] = [];
+  roundTwo: Applicant[] = [];
+  finalRound: Applicant[] = [];
   //for unique months
   //
   uniqueMonths: string[] = [];
@@ -25,6 +27,10 @@ export class UserTableComponent {
   janBatchNumers: number = 0;
   marBatchNumbers: number = 0;
   junBatchNumbers: number = 0;
+  totalNumbers: number = 0;
+  roundOneNumbers: number = 0;
+  roundTwoNumbers: number = 0;
+  finalRoundNumbers: number = 0;
   constructor(private Api: ApiCallService) { }
   getAll(): void {
     this.Api.getAllApplicants().subscribe((applicants) => {
@@ -32,11 +38,17 @@ export class UserTableComponent {
       this.FebBatchNumbers();
       this.JanBatchNumbers();
       this.MarBatchNumbers();
-
+      this.RoundOne();
+      this.RoundTwo();
+      this.FinalRound();
       this.Months();
       this.febBatchNumbers = this.febBatch.length;
       this.janBatchNumers = this.janBatch.length;
       this.marBatchNumbers = this.marBatch.length;
+      this.totalNumbers = this.applicants.length;
+      this.roundOneNumbers = this.roundOne.length;
+      this.roundTwoNumbers = this.roundTwo.length;
+      this.finalRoundNumbers = this.finalRound.length;
     });
   }
   ngOnInit(): void {
@@ -47,7 +59,6 @@ export class UserTableComponent {
   //
   singleApplicantView(index: number) {
     this.isRedirect = index;
-    console.log('the function works');
   }
 
   MarBatchNumbers() {
@@ -75,5 +86,26 @@ export class UserTableComponent {
         this.uniqueMonths.push(applicants.batchName);
       }
     });
+  }
+  RoundOne() {
+    const one = this.applicants.filter(
+      (applicants) => applicants.status === 'Round 1'
+    );
+
+    this.roundOne = one;
+  }
+
+  RoundTwo() {
+    const one = this.applicants.filter(
+      (applicants) => applicants.status === 'Round 2'
+    );
+    this.roundOne = one;
+  }
+
+  FinalRound() {
+    const one = this.applicants.filter(
+      (applicants) => applicants.status === 'Final round'
+    );
+    this.finalRound = one;
   }
 }
