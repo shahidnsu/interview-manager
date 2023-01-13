@@ -41,12 +41,18 @@
       </div>
     </div>
   </div>
-
-  <div *ngIf="febBatchNumbers && janBatchNumers && marBatchNumbers">
-    <app-user-line-chart [febBatchNumbers]="febBatchNumbers" [uniqueMonths]="uniqueMonths"
-      [janBatchNumbers]="janBatchNumers" [marBatchNumbers]="marBatchNumbers"></app-user-line-chart>
-  </div>
 </div>
+<div *ngIf="febBatchNumbers && janBatchNumers && marBatchNumbers">
+  <app-user-line-chart [febBatchNumbers]="febBatchNumbers" [uniqueMonths]="uniqueMonths"
+    [janBatchNumbers]="janBatchNumers" [marBatchNumbers]="marBatchNumbers"></app-user-line-chart>
+</div>
+<label class="relative block float-right mr-[9%] mb-4">
+  <span class="sr-only">Search</span>
+  <span class="absolute inset-y-0 left-0 flex items-center pl-2"> </span>
+  <input #typing (change)="gettingInput(typing.value)"
+    class="placeholder:italic placeholder:text-slate-400 block bg-white w-50 border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+    placeholder="Search by name..." type="text" name="search" />
+</label>
 <section class="container mx-auto p-6 font-sans">
   <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
     <div class="w-full overflow-x-auto">

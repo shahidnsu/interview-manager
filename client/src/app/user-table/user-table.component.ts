@@ -9,6 +9,7 @@ import { Applicant } from '../ApplicantInterface';
 })
 export class UserTableComponent {
   applicants: Applicant[] = [];
+  serachApplicants: Applicant[] = [];
   febBatch: Applicant[] = [];
   janBatch: Applicant[] = [];
   marBatch: Applicant[] = [];
@@ -31,7 +32,11 @@ export class UserTableComponent {
   roundOneNumbers: number = 0;
   roundTwoNumbers: number = 0;
   finalRoundNumbers: number = 0;
+  //hold the input value
+  //
+  inputValue: string = '';
   constructor(private Api: ApiCallService) { }
+
   getAll(): void {
     this.Api.getAllApplicants().subscribe((applicants) => {
       this.applicants = applicants;
@@ -51,9 +56,11 @@ export class UserTableComponent {
       this.finalRoundNumbers = this.finalRound.length;
     });
   }
+
   ngOnInit(): void {
     this.getAll();
   }
+
   isRedirect = 0;
   //this function for showing the user to the show single applicant view
   //
@@ -107,5 +114,13 @@ export class UserTableComponent {
       (applicants) => applicants.status === 'Final round'
     );
     this.finalRound = one;
+  }
+  gettingInput(value: string) {
+    this.inputValue = value;
+    this.serachApplicants = this.applicants.filter((applicants) =>
+      applicants.firstName.includes(this.inputValue)
+    );
+
+    this.applicants = this.serachApplicants;
   }
 }
