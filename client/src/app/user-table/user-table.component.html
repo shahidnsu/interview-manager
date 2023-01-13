@@ -32,7 +32,9 @@
             <td class="px-3 py-3 text-sm border">{{ user.phoneNumber }}</td>
             <td class="px-3 py-3 text-sm border">{{ user.batchName }}</td>
 
-            <td class="px-3 py-3 text-sm border">{{ user.githubUserName }}</td>
+            <td class="px-3 py-3 text-sm border">
+              {{ user.githubUserName }}
+            </td>
             <td class="px-3 py-3 text-sm border">
               {{ user.appliedDate | date }}
             </td>
@@ -43,10 +45,11 @@
               </span>
             </td>
             <td class="px-4 py-3 text-xs border">
-              <button type="button"
-                class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 text-xs rounded-lg px-5 py-2.5 text-center mr-2 mb-2">
-                Edit
-              </button>
+              <a routerLink="/dashboard/singleuser/{{ user.firstName }}"><button type="button"
+                  class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 text-xs rounded-lg px-5 py-2.5 text-center mr-2 mb-2">
+                  View
+                </button>
+              </a>
             </td>
           </tr>
         </tbody>
@@ -54,3 +57,5 @@
     </div>
   </div>
 </section>
+
+<router-outlet></router-outlet>

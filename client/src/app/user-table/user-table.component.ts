@@ -42,6 +42,13 @@ export class UserTableComponent {
   ngOnInit(): void {
     this.getAll();
   }
+  isRedirect = 0;
+  //this function for showing the user to the show single applicant view
+  //
+  singleApplicantView(index: number) {
+    this.isRedirect = index;
+    console.log('the function works');
+  }
 
   MarBatchNumbers() {
     const march = this.applicants.filter(

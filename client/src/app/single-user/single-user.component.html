@@ -1,1 +1,15 @@
-<p>single-user works!</p>
+<div class="flex flex-col justify-center border-gray-600 px-4 py-16 bg-indigo-500 w-full h-full">
+  <h1>Name : {{ user.firstName }} {{ user.lastName }}</h1>
+  <h2>Applied Date: {{ user.appliedDate | date }}</h2>
+  <h3>Batch Name : {{ user.batchName }}</h3>
+  <h4>Phone Number : {{ user.phoneNumber }}</h4>
+  <h5>Github : {{ user.githubUserName }}</h5>
+  <p>Current status is :{{ seletedStatus }}</p>
+  <select #status (change)="onSelected(status.value)">
+    <option default>{{ seletedStatus }}</option>
+    <option>Round 1</option>
+    <option>Round 2</option>
+    <option>Final round</option>
+    <option>Rejected</option>
+  </select>
+</div>

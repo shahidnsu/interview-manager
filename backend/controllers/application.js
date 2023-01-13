@@ -62,3 +62,15 @@ exports.createApplicant = async (req, res) => {
     console.log("error is ", error);
   }
 };
+exports.changeStatus = async (req, res) => {
+  const { id } = req.params;
+  const { value } = req.body;
+  try {
+    const result = await applicationsDb.updateStatus(id, value);
+    res.status(201);
+    res.send(result);
+  } catch (error) {
+    res.status(500);
+    console.log("The error is ", error);
+  }
+};

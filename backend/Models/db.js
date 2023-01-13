@@ -58,3 +58,8 @@ exports.findOneApplicant = async (id) => {
 exports.createApplication = async (deatils) => {
   return await ApplicationDeatis.create(deatils);
 };
+exports.updateStatus = async (id, value) => {
+  return await ApplicationDeatis.findByIdAndUpdate(id, {
+    $set: { status: value },
+  });
+};
