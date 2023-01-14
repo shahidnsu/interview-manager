@@ -1,4 +1,3 @@
-const { application } = require("express");
 const mongoose = require("mongoose");
 try {
   mongoose.connect("mongodb://127.0.0.1:27017/Application");
@@ -42,7 +41,18 @@ const applicationSchema = new Schema({
     default: "pending",
   },
 });
-
+const adminUser = new Schema({
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+});
+const UserDatas = model("adminUser", adminUser);
 const ApplicationDeatis = model("ApplicantData", applicationSchema);
 
 exports.getAllApplicants = async () => {
@@ -62,4 +72,12 @@ exports.updateStatus = async (id, value) => {
   return await ApplicationDeatis.findByIdAndUpdate(id, {
     $set: { status: value },
   });
+};
+
+exports.getAllUsers = async () => {
+  return await UserDatas.find({});
+};
+
+exports.createUser = async (userInfo) => {
+  return await UserDatas.create(userInfo);
 };

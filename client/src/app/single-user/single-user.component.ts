@@ -12,7 +12,7 @@ export class SingleUserComponent {
     private ActivatedRoute: ActivatedRoute,
     private api: ApiCallService
   ) { }
-  userName: any;
+  userId: any;
   users: Applicant[] = [];
   user!: any;
   seletedStatus = '';
@@ -27,8 +27,8 @@ export class SingleUserComponent {
   }
   getSingleUser(): void {
     this.ActivatedRoute.paramMap.subscribe((param) => {
-      this.userName = param.get('name');
-      this.user = this.users.find((x) => x.firstName == this.userName);
+      this.userId = param.get('id');
+      this.user = this.users.find((x) => x._id == this.userId);
     });
   }
   onSelected(value: string): void {

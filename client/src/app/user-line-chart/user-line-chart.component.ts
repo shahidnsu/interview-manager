@@ -12,6 +12,7 @@ export class UserLineChartComponent {
   @Input() marBatchNumbers: any;
   //charData: string[] = [this.febBatchNumbers.toString()];
   public chart: any;
+  public LineChart: any;
   createPieChart() {
     this.chart = new Chart('MyChart', {
       type: 'pie', //this denotes tha type of chart
@@ -21,39 +22,20 @@ export class UserLineChartComponent {
         datasets: [
           {
             label: 'Number of students',
+
             data: [
               this.febBatchNumbers.toString(),
               this.janBatchNumbers.toString(),
               this.marBatchNumbers.toString(),
               '5',
             ],
-            backgroundColor: [
-              'rgb(255, 99, 132)',
-              'rgb(54, 162, 235)',
-              'rgb(255, 205, 86)',
-              'rgb(60,99,10)',
-            ],
+
+            backgroundColor: ['#58508d', '#ff6361', '#003f5c', '#ffa600'],
           },
-          // {
-          //   label: 'Feb',
-          //   data: ['50'],
-          //   backgroundColor: 'black',
-          // },
-          //
-          // {
-          //   label: 'March',
-          //   data: [this.febBatchNumbers.toString()],
-          //   backgroundColor: 'gray',
-          // },
-          // {
-          //   label: 'April',
-          //   data: ['10'],
-          //   backgroundColor: 'white',
-          // },
         ],
       },
       options: {
-        aspectRatio: 4.5,
+        aspectRatio: 1,
 
         scales: {
           y: {
@@ -73,7 +55,52 @@ export class UserLineChartComponent {
       },
     });
   }
+
+  createLineChart() {
+    this.LineChart = new Chart('MyLineChart', {
+      type: 'line', //this denotes tha type of chart
+
+      data: {
+        labels: [...this.uniqueMonths],
+        datasets: [
+          {
+            label: 'Number of students per Month',
+            data: [
+              this.febBatchNumbers.toString(),
+              this.janBatchNumbers.toString(),
+              this.marBatchNumbers.toString(),
+              '10',
+            ],
+
+            fill: false,
+
+            backgroundColor: ['#58508b', '#ff6361', '#003f5c', '#ffa600'],
+            tension: 0.2,
+          },
+        ],
+      },
+      options: {
+        aspectRatio: 1,
+
+        scales: {
+          y: {
+            grid: {
+              display: true,
+            },
+          },
+
+          x: {
+            grid: {
+              display: false,
+            },
+          },
+        },
+      },
+    });
+  }
+
   ngOnInit(): void {
     this.createPieChart();
+    this.createLineChart();
   }
 }

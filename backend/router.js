@@ -8,4 +8,7 @@ router.get("/all", applicant.getApplicants);
 router.post("/all/new", applicant.createApplicant);
 router.put("/all/:id", applicant.changeStatus);
 
+router.get("/login/user", applicant.allUsers);
+router.post("/login/user", applicant.createUser);
+
 module.exports = router;

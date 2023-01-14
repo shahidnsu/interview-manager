@@ -20,7 +20,7 @@ export class UserTableComponent {
   //for unique months
   //
   uniqueMonths: string[] = [];
-
+  tmp: Applicant[] = [];
   //passing data using props
   //
   //
@@ -120,7 +120,6 @@ export class UserTableComponent {
     this.serachApplicants = this.applicants.filter((applicants) =>
       applicants.firstName.includes(this.inputValue)
     );
-
     this.applicants = this.serachApplicants;
   }
 }

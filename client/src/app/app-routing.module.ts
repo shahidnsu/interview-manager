@@ -14,7 +14,7 @@ const routes: Routes = [
     component: UserTableComponent,
   },
   {
-    path: 'dashboard/singleuser/:name',
+    path: 'dashboard/singleuser/:id',
     component: SingleUserComponent,
   },
 ];
