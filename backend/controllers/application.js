@@ -65,7 +65,8 @@ exports.createApplicant = async (req, res) => {
 };
 const creatingMailOptions = function(data) {
   let value = "";
-
+  console.log(data);
+  console.log(data.status);
   if (data.status == "Rejected") {
     value =
       "Sorry we could not move you to next round .Thank you for applying.Donot be upset preapare yourself and reapply";
@@ -101,12 +102,14 @@ exports.changeStatus = async (req, res) => {
     const result = await applicationsDb
       .updateStatus(id, value)
       .then((result) => {
+        console.log(result);
         return creatingMailOptions(result);
       })
       .then((mailOptions) => {
         transport(mailOptions);
       });
 
+    console.log("result", result);
     res.status(201);
     res.send(result);
   } catch (error) {

@@ -69,13 +69,9 @@ exports.createApplication = async (deatils) => {
   return await ApplicationDeatis.create(deatils);
 };
 exports.updateStatus = async (id, value) => {
-  return await ApplicationDeatis.findByIdAndUpdate(
-    id,
-    {
-      $set: { status: value },
-    },
-    { new: true }
-  );
+  return await ApplicationDeatis.findByIdAndUpdate(id, {
+    $set: { status: value },
+  });
 };
 
 exports.getAllUsers = async () => {
