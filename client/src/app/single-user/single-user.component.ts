@@ -15,14 +15,14 @@ export class SingleUserComponent {
   userId: any;
   users: Applicant[] = [];
   user!: any;
-  seletedStatus = '';
+  selectedStatus = '';
   getAll(): void {
     this.api.getAllApplicants().subscribe((users) => {
       this.users = users;
 
       this.getSingleUser();
-      this.seletedStatus = this.user.status;
-      this.onSelected(this.seletedStatus);
+      this.selectedStatus = this.user.status;
+      this.onSelected(this.selectedStatus);
     });
   }
   getSingleUser(): void {
@@ -32,8 +32,8 @@ export class SingleUserComponent {
     });
   }
   onSelected(value: string): void {
-    this.seletedStatus = value;
-    this.api.statusChange(this.user._id, this.seletedStatus).subscribe({});
+    this.selectedStatus = value;
+    this.api.statusChange(this.user._id, this.selectedStatus).subscribe({});
   }
   ngOnInit(): void {
     this.getAll();

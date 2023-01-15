@@ -3,6 +3,7 @@ import { HttpClient,HttpErrorResponse,HttpHeaders } from '@angular/common/http';
 import {Router} from '@angular/router';
 import { Observable } from 'rxjs';
 import {User} from './UserInterface'
+import { JwtHelperService,JWT_OPTIONS } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import {User} from './UserInterface'
 export class AuthService {
   api:string ='http://localhost:3000'
 
-  constructor(private http:HttpClient, public router:Router) { }
+  constructor(private http:HttpClient, public router:Router, public jwtHelper:JwtHelperService) { }
   register(email:string, password:string){
     return this.http.post<User>(`${this.api}/login`, {email,password},{observe:'response'})
   }
@@ -31,5 +32,10 @@ export class AuthService {
       msg=`Error Code :{error.status}\nMessage : ${error.message}`
     }
     return msg
+  }
+  public isAuthenticated(): boolean{
+    const token = localStorage.getItem('token')
+    return !this.jwtHelper.isTokenExpired(token)
+
   }
 }

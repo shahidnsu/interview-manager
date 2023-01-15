@@ -12,7 +12,9 @@ import { UserTableComponent } from './user-table/user-table.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SingleUserComponent } from './single-user/single-user.component';
 import { UserLineChartComponent } from './user-line-chart/user-line-chart.component';
-
+import { JwtHelperService,JWT_OPTIONS } from '@auth0/angular-jwt';
+import {AuthService} from './auth.service'
+import {AuthGuardService} from './auth-guard.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,8 +32,16 @@ import { UserLineChartComponent } from './user-line-chart/user-line-chart.compon
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    
+  
   ],
-  providers: [],
+  providers: [{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService,AuthGuardService,AuthService],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule { 
+
+  
+
+
+}

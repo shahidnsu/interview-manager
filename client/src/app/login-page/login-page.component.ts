@@ -20,8 +20,8 @@ export class LoginPageComponent {
   errorMsg : string =''
 
   login() {
-    const value = this.LogIn.value
-    console.log(value)
+    
+    
     if(this.LogInFormControl.email.value && this.LogInFormControl.password.value){
       if(this.LogInFormControl.password.value.length < 2){
         this.errorMsg ='Your password did not match'
