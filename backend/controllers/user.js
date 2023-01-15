@@ -1,7 +1,7 @@
 const userDb = require('../Models/db');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const secret = 'afia1234';
+const secret = 'projetcodeHello';
 
 
 async function register(req, res) {

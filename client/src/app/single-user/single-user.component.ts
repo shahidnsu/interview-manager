@@ -14,7 +14,7 @@ export class SingleUserComponent {
   ) { }
   userId: any;
   users: Applicant[] = [];
-  user!: any;
+  user!: Applicant;
   selectedStatus = '';
   getAll(): void {
     this.api.getAllApplicants().subscribe((users) => {
@@ -28,11 +28,13 @@ export class SingleUserComponent {
   getSingleUser(): void {
     this.ActivatedRoute.paramMap.subscribe((param) => {
       this.userId = param.get('id');
-      this.user = this.users.find((x) => x._id == this.userId);
+      const searchUser = this.users.find((x) => x._id == this.userId);
+      if(searchUser) this.user = searchUser;
     });
   }
   onSelected(value: string): void {
     this.selectedStatus = value;
+    if(this.user._id)
     this.api.statusChange(this.user._id, this.selectedStatus).subscribe({});
   }
   ngOnInit(): void {

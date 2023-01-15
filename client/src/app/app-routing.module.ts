@@ -8,6 +8,7 @@ import { UserTableComponent } from './user-table/user-table.component';
 import {AuthGuardService} from './auth-guard.service'
 const routes: Routes = [
   { path: '', component: ApplicationFromComponent },
+  { path: 'loginpage', component: LoginPageComponent },
   {
     path: 'dashboard',
     component: UserTableComponent,
@@ -18,7 +19,7 @@ const routes: Routes = [
     component: SingleUserComponent,
     //canActivate: [AuthGuardService]
   },
-  { path: 'loginpage', component: LoginPageComponent },
+  
 
   
   

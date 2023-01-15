@@ -3,7 +3,14 @@ const app = express();
 const cors = require("cors");
 
 const router = require("./router");
-app.use(cors());
+
+const corsConfig = {
+  origin: 'http://localhost:4200',
+  credentials: true,
+  exposedHeaders: ['authorization']
+}
+
+app.use(cors(corsConfig));
 
 app.use(express.json());
 app.use(router);

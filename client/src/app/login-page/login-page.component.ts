@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
 import { AuthService } from '../auth.service';
+import {AuthGuardService} from '../auth-guard.service'
 
 @Component({
   selector: 'app-login-page',
@@ -19,6 +20,8 @@ export class LoginPageComponent {
   }
   errorMsg : string =''
 
+  
+
   login() {
     
     
@@ -30,11 +33,15 @@ export class LoginPageComponent {
         this.auth.login(this.LogInFormControl.email.value, this.LogInFormControl.password.value).subscribe({
           next :(res:any) => {
             localStorage.setItem('accessToken',res.headers.get('authorization'));
+            console.log(res.headers.get('authorization'))
             localStorage.setItem('user',JSON.stringify(res.body.user))
+            console.log(res.body.user)
             if(res.body.user){
+              console.log("inside if")
               this.router.navigate(['dashboard'])
             }
             else {
+              console.log("inside else")
               this.router.navigate(['loginpage'])
             }
           }
