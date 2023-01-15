@@ -5,17 +5,17 @@
         <div class="flex flex-col flex-1 justify-center mb-8">
           <h1 class="text-4xl text-center font-thin">Welcome Back</h1>
           <div class="w-full mt-4">
-            <form class="form-horizontal w-3/4 mx-auto" method="POST" action="#">
+            <form  [formGroup]="LogIn" (ngSubmit)="login()" class="form-horizontal w-3/4 mx-auto">
               <div class="flex flex-col mt-4">
                 <input id="email" type="text" class="flex-grow h-8 p-7 border rounded border-grey-400" name="email"
-                  value="" placeholder="Email" />
+                   formControlName="email" placeholder="Email" />
               </div>
               <div class="flex flex-col mt-4">
                 <input id="password" type="password" class="flex-grow h-8 p-7 rounded border border-grey-400"
-                  name="password" required placeholder="Password" />
+                  name="password" formControlName="password" required placeholder="Password" />
               </div>
               <div class="flex flex-col mt-8">
-                <button type="submit"
+                <button (click)="login()" type="submit"
                   class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded">
                   Login
                 </button>
