@@ -3,14 +3,16 @@ import { FormBuilder, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
 import { AuthService } from '../auth.service';
 import {AuthGuardService} from '../auth-guard.service'
-
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css'],
 })
 export class LoginPageComponent {
-  constructor(private Builder: FormBuilder, private auth:AuthService, private router:Router) { }
+  constructor(private Builder: FormBuilder, private auth:AuthService, private router:Router, private titleService: Title ) {
+    this.titleService.setTitle("Admin - HR");
+   }
   LogIn = this.Builder.group({
     email: ['', Validators.required],
     password: ['', Validators.required],

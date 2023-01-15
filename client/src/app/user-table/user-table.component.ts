@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiCallService } from '../api-call.service';
 import { Applicant } from '../ApplicantInterface';
-
+import {Title} from '@angular/platform-browser'
 @Component({
   selector: 'app-user-table',
   templateUrl: './user-table.component.html',
@@ -35,7 +35,9 @@ export class UserTableComponent {
   //hold the input value
   //
   inputValue: string = '';
-  constructor(private Api: ApiCallService) { }
+  constructor(private Api: ApiCallService, private titleService: Title) {
+    this.titleService.setTitle('Admin Dashboard')
+   }
 
   getAll(): void {
     this.Api.getAllApplicants().subscribe((applicants) => {

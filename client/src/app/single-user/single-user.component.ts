@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Applicant } from '../ApplicantInterface';
 import { ActivatedRoute } from '@angular/router';
 import { ApiCallService } from '../api-call.service';
+import {Title} from '@angular/platform-browser'
 @Component({
   selector: 'app-single-user',
   templateUrl: './single-user.component.html',
@@ -10,8 +11,11 @@ import { ApiCallService } from '../api-call.service';
 export class SingleUserComponent {
   constructor(
     private ActivatedRoute: ActivatedRoute,
-    private api: ApiCallService
-  ) { }
+    private api: ApiCallService,
+    private titleService :Title
+  ) { 
+    this.titleService.setTitle('Details-Applicant')
+  }
   userId: any;
   users: Applicant[] = [];
   user!: Applicant;

@@ -2,13 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ApiCallService } from '../api-call.service';
 import { Applicant } from '../ApplicantInterface';
+import { Title } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-application-from',
   templateUrl: './application-from.component.html',
   styleUrls: ['./application-from.component.css'],
 })
 export class ApplicationFromComponent {
-  constructor(private Builder: FormBuilder, private Api: ApiCallService) { }
+  
+  constructor(private Builder: FormBuilder, private Api: ApiCallService,public titleService :Title) { 
+    this.titleService.setTitle("Apply- Hello HR")
+  }
 
   //this value just redirect user to the success page
   //

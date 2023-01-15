@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule ,Title} from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -36,7 +36,7 @@ import {AuthGuardService} from './auth-guard.service'
   
   ],
   providers: [{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
-    JwtHelperService,AuthGuardService,AuthService],
+    JwtHelperService,AuthGuardService,AuthService,Title],
   bootstrap: [AppComponent],
 })
 export class AppModule { 
