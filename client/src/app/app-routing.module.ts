@@ -5,9 +5,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SingleUserComponent } from './single-user/single-user.component';
 import { UserTableComponent } from './user-table/user-table.component';
-import {AuthGuardService} from './auth-guard.service'
+import {AuthGuardService} from './auth-guard.service';
+import {ErrorComponent} from './error/error.component';
 const routes: Routes = [
-  { path: '', component: ApplicationFromComponent },
+  { path: 'hello/apply', component: ApplicationFromComponent },
   { path: 'loginpage', component: LoginPageComponent },
   {
     path: 'dashboard',
@@ -17,8 +18,13 @@ const routes: Routes = [
   {
     path: 'dashboard/singleuser/:id',
     component: SingleUserComponent,
-    //canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService]
   },
+  {
+    path:'**',
+    component:ErrorComponent,
+
+  }
   
 
   

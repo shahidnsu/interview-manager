@@ -14,7 +14,8 @@ import { SingleUserComponent } from './single-user/single-user.component';
 import { UserLineChartComponent } from './user-line-chart/user-line-chart.component';
 import { JwtHelperService,JWT_OPTIONS } from '@auth0/angular-jwt';
 import {AuthService} from './auth.service'
-import {AuthGuardService} from './auth-guard.service'
+import {AuthGuardService} from './auth-guard.service';
+import { ErrorComponent } from './error/error.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import {AuthGuardService} from './auth-guard.service'
     NavbarComponent,
     SingleUserComponent,
     UserLineChartComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
