@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const userDb = require('../Models/db');
-const secret = 'afia1234';
+const secret = 'projetcodeHello';
 
 
 const authMiddleware = async (req, res, next) => {
