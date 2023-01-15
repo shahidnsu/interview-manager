@@ -73,7 +73,7 @@ exports.createApplication = async (deatils) => {
 };
 
 exports.updateStatus = async (id, value) => {
-  return await ApplicationDetalis.findByIdAndUpdate(
+  return await ApplicationDetails.findByIdAndUpdate(
     id,
     {
       $set: { status: value },
