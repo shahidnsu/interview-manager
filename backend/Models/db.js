@@ -41,6 +41,8 @@ const applicationSchema = new Schema({
     default: "pending",
   },
 });
+
+
 const adminUser = new Schema({
   email: {
     type: String,
@@ -52,24 +54,26 @@ const adminUser = new Schema({
     required: true,
   },
 });
+
 const UserDatas = model("adminUser", adminUser);
-const ApplicationDeatis = model("ApplicantData", applicationSchema);
+const ApplicationDetails = model("ApplicantData", applicationSchema); 
 
 exports.getAllApplicants = async () => {
-  return await ApplicationDeatis.find({}).sort({ createdAt: "asc" });
+  return await ApplicationDetails.find({}).sort({ createdAt: "asc" });
 };
 exports.applyOneApplicant = async (applicationDetails) => {
-  return await ApplicationDeatis.create(applicationDetails);
+  return await ApplicationDetails.create(applicationDetails);
 };
 exports.findOneApplicant = async (id) => {
-  return await ApplicationDeatis.findById(id);
+  return await ApplicationDetails.findById(id);
 };
 
 exports.createApplication = async (deatils) => {
-  return await ApplicationDeatis.create(deatils);
+  return await ApplicationDetails.create(deatils);
 };
+
 exports.updateStatus = async (id, value) => {
-  return await ApplicationDeatis.findByIdAndUpdate(
+  return await ApplicationDetalis.findByIdAndUpdate(
     id,
     {
       $set: { status: value },
@@ -85,3 +89,9 @@ exports.getAllUsers = async () => {
 exports.createUser = async (userInfo) => {
   return await UserDatas.create(userInfo);
 };
+
+exports.getOneUser = async (userInfo) => {
+  return await UserDatas.findOne({email:userInfo.email})
+}
+
+
