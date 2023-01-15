@@ -7,11 +7,11 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginPageComponent {
   constructor(private Builder: FormBuilder) { }
-  SignIn = this.Builder.group({
+  LogIn = this.Builder.group({
     email: ['', Validators.required],
     password: ['', Validators.required],
   });
   get SignInFormControl() {
-    return this.SignIn.controls;
+    return this.LogIn.controls;
   }
 }
