@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpErrorResponse,HttpHeaders } from '@angular/common/http';
 import {Router} from '@angular/router';
 import { Observable } from 'rxjs';
-import {User} from './UserInterface'
+import {User} from '../Interfaces/UserInterface'
 import { JwtHelperService,JWT_OPTIONS } from '@auth0/angular-jwt';
 
 @Injectable({

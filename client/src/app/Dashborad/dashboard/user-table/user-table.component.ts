@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiCallService } from '../api-call.service';
-import { Applicant } from '../ApplicantInterface';
+import { ApiCallService } from '../../../ApiCall/api-call.service';
+import { Applicant } from '../../../Interfaces/ApplicantInterface';
 import {Title} from '@angular/platform-browser';
 import { Router } from '@angular/router';
 @Component({

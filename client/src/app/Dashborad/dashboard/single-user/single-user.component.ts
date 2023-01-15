@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Applicant } from '../ApplicantInterface';
+import { Applicant } from '../../../Interfaces/ApplicantInterface';
 import { ActivatedRoute } from '@angular/router';
-import { ApiCallService } from '../api-call.service';
+import { ApiCallService } from '../../../ApiCall/api-call.service';
 import {Title} from '@angular/platform-browser'
 @Component({
   selector: 'app-single-user',

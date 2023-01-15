@@ -1,8 +1,8 @@
 import { Component,OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
-import { AuthService } from '../auth.service';
-import {AuthGuardService} from '../auth-guard.service'
+import { AuthService } from '../../ApiCall/auth.service';
+import {AuthGuardService} from '../../ApiCall/auth-guard.service'
 import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-login-page',

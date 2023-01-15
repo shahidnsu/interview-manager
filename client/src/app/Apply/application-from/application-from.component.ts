@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ApiCallService } from '../api-call.service';
-import { Applicant } from '../ApplicantInterface';
+import { ApiCallService } from '../../ApiCall/api-call.service';
+import { Applicant } from '../../Interfaces/ApplicantInterface';
 import { Title } from '@angular/platform-browser';
 
 @Component({
