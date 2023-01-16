@@ -13,6 +13,10 @@ export class UserLineChartComponent {
   //charData: string[] = [this.febBatchNumbers.toString()];
   public chart: any;
   public LineChart: any;
+  
+
+
+
   createPieChart() {
     this.chart = new Chart('MyChart', {
       type: 'pie', //this denotes tha type of chart
@@ -27,7 +31,7 @@ export class UserLineChartComponent {
               this.febBatchNumbers.toString(),
               this.janBatchNumbers.toString(),
               this.marBatchNumbers.toString(),
-              '5',
+              this.janBatchNumbers.toString()
             ],
 
             backgroundColor: ['#58508d', '#ff6361', '#003f5c', '#ffa600'],
@@ -98,7 +102,7 @@ export class UserLineChartComponent {
       },
     });
   }
-
+  
   ngOnInit(): void {
     this.createPieChart();
     this.createLineChart();
