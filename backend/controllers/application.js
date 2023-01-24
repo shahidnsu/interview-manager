@@ -1,6 +1,5 @@
 const transport = require("../emailService/nodeMailer");
 const applicationsDb = require("../Models/db");
-console.log(applicationsDb);
 exports.getApplicants = async (req, res) => {
   try {
     const applicants = await applicationsDb.getAllApplicants();
@@ -71,8 +70,7 @@ const creatingMailOptions = function(data) {
     value =
       "Sorry we could not move you to next round .Thank you for applying.Donot be upset preapare yourself and reapply";
   } else {
-    value =
-      "We move you to the next round of interview proccess.See you in the next round of interview process";
+    value = `We move you to  ${data.status} of interview proccess.See you in the next round of interview process`;
   }
   let mailOptions = {
     from: "hello.hr.portal@gmail.com",
@@ -117,6 +115,18 @@ exports.changeStatus = async (req, res) => {
     console.log("The error is ", error);
   }
 };
+exports.deleteOneUser = async (req, res) => {
+  const { id } = req.params;
+  console.log("indside id ", id);
+  try {
+    const result = await applicationsDb.deleteUser(id);
+    res.status(201);
+  } catch (error) {
+    res.status(500);
+    console.log("the error is ", error);
+  }
+};
+
 exports.createUser = async (req, res) => {
   const { email, password } = req.body;
 

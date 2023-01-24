@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Applicant } from '../../../Interfaces/ApplicantInterface';
 import { ActivatedRoute } from '@angular/router';
 import { ApiCallService } from '../../../ApiCall/api-call.service';
-import {Title} from '@angular/platform-browser'
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-single-user',
   templateUrl: './single-user.component.html',
@@ -12,9 +12,9 @@ export class SingleUserComponent {
   constructor(
     private ActivatedRoute: ActivatedRoute,
     private api: ApiCallService,
-    private titleService :Title
-  ) { 
-    this.titleService.setTitle('Details-Applicant')
+    private titleService: Title
+  ) {
+    this.titleService.setTitle('Details-Applicant');
   }
   userId: any;
   users: Applicant[] = [];
@@ -33,13 +33,16 @@ export class SingleUserComponent {
     this.ActivatedRoute.paramMap.subscribe((param) => {
       this.userId = param.get('id');
       const searchUser = this.users.find((x) => x._id == this.userId);
-      if(searchUser) this.user = searchUser;
+      if (searchUser) this.user = searchUser;
     });
   }
   onSelected(value: string): void {
     this.selectedStatus = value;
-    if(this.user._id)
-    this.api.statusChange(this.user._id, this.selectedStatus).subscribe({});
+    if (this.user._id)
+      this.api.statusChange(this.user._id, this.selectedStatus).subscribe({});
+  }
+  deleteUser(id: string): void {
+    this.api.deleteUser(id).subscribe({});
   }
   ngOnInit(): void {
     this.getAll();

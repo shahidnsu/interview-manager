@@ -42,7 +42,6 @@ const applicationSchema = new Schema({
   },
 });
 
-
 const adminUser = new Schema({
   email: {
     type: String,
@@ -56,7 +55,7 @@ const adminUser = new Schema({
 });
 
 const UserDatas = model("adminUser", adminUser);
-const ApplicationDetails = model("ApplicantData", applicationSchema); 
+const ApplicationDetails = model("ApplicantData", applicationSchema);
 
 exports.getAllApplicants = async () => {
   return await ApplicationDetails.find({}).sort({ createdAt: "asc" });
@@ -81,6 +80,9 @@ exports.updateStatus = async (id, value) => {
     { new: true }
   );
 };
+exports.deleteUser = async (id) => {
+  return await ApplicationDetails.findByIdAndDelete({ _id: id });
+};
 
 exports.getAllUsers = async () => {
   return await UserDatas.find({});
@@ -91,7 +93,5 @@ exports.createUser = async (userInfo) => {
 };
 
 exports.getOneUser = async (userInfo) => {
-  return await UserDatas.findOne({email:userInfo.email})
-}
-
-
+  return await UserDatas.findOne({ email: userInfo.email });
+};

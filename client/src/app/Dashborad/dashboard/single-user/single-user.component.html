@@ -6,10 +6,11 @@
           {{ user.firstName }} {{ user.lastName }}
         </h1>
         <div class="my-5 px-6">
-          <a href="#"
+          <div
             class="text-gray-200 block rounded-lg text-center font-medium leading-6 px-6 py-3 bg-indigo-800 hover:bg-black hover:text-white">
             Email
-            <span class="font-bold">{{ user.email }}</span></a>
+            <span class="font-bold">{{ user.email }}</span>
+          </div>
         </div>
 
         <div class="w-full">
@@ -24,35 +25,37 @@
               Status: {{ status.value }}
             </a>
 
-            <a href="#"
+            <a href="https://github.com/{{ user.githubUserName }}"
               class="w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150">
               <img src="https://avatars0.githubusercontent.com/u/35900628?v=4" alt=""
                 class="rounded-full h-6 shadow-md inline-block mr-2" />
-              {{ user.githubUserName }}
+              <button>Github Profile Link : {{ user.githubUserName }}</button>
             </a>
 
-            <a href="#"
+            <div
               class="w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150">
               <img src="https://avatars0.githubusercontent.com/u/35900628?v=4" alt=""
                 class="rounded-full h-6 shadow-md inline-block mr-2" />
               Phone Number:
               <span class="font-bold">{{ user.phoneNumber }}</span>
-            </a>
+            </div>
 
-            <a href="#"
+            <div
               class="w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150">
               <img src="https://avatars0.githubusercontent.com/u/35900628?v=4" alt=""
                 class="rounded-full h-6 shadow-md inline-block mr-2" />
               Batch : {{ user.batchName }}
-            </a>
+            </div>
 
-            <a href="#"
+            <div
               class="w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150 overflow-hidden">
               <img src="https://avatars0.githubusercontent.com/u/35900628?v=4" alt=""
                 class="rounded-full h-6 shadow-md inline-block mr-2" />
               Applied Date: {{ user.appliedDate | date }}
-            </a>
-            <p class="mb-2" *ngIf="selectedStatus">Current status is :{{ selectedStatus }}</p>
+            </div>
+            <p class="mb-2" *ngIf="selectedStatus">
+              Current status is :{{ selectedStatus }}
+            </p>
             <select
               class="w-full bg-indigo-900 border-t border-gray-100 text-white py-4 pr-3 w-full block hover:bg-indigo-500 transition duration-150 text-center"
               #status (change)="onSelected(status.value)">
@@ -62,6 +65,10 @@
               <option>Final round</option>
               <option>Rejected</option>
             </select>
+            <div (click)="deleteUser(user._id!)"
+              class="w-full border-t border-gray-100 bg-red-500 text-center text-white py-4 pl-6 pr-3 w-full block overflow-hidden">
+              <button class="rounded text-center">Delete</button>
+            </div>
           </div>
         </div>
       </div>

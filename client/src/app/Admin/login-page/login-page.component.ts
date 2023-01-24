@@ -40,6 +40,7 @@ export class LoginPageComponent {
             console.log(res.body.user)
             if(res.body.user){
               console.log("inside if")
+              console.log("hello")
               this.router.navigate(['dashboard'])
             }
             else {
