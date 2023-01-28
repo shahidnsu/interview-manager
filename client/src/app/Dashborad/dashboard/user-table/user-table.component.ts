@@ -26,7 +26,7 @@ export class UserTableComponent {
   //
   //
   febBatchNumbers: number = 0;
-  janBatchNumers: number = 0;
+  janBatchNumbers: number = 0;
   marBatchNumbers: number = 0;
   junBatchNumbers: number = 0;
   totalNumbers: number = 0;
@@ -36,8 +36,12 @@ export class UserTableComponent {
   //hold the input value
   //
   inputValue: string = '';
-  constructor(private Api: ApiCallService, private titleService: Title, private route: Router) {
-    this.titleService.setTitle('Admin Dashboard')
+  constructor(
+    private Api: ApiCallService,
+    private titleService: Title,
+    private route: Router
+  ) {
+    this.titleService.setTitle('Admin Dashboard');
   }
 
   getAll(): void {
@@ -51,7 +55,7 @@ export class UserTableComponent {
       this.FinalRound();
       this.Months();
       this.febBatchNumbers = this.febBatch.length;
-      this.janBatchNumers = this.janBatch.length;
+      this.janBatchNumbers = this.janBatch.length;
       this.marBatchNumbers = this.marBatch.length;
       this.totalNumbers = this.applicants.length;
       this.roundOneNumbers = this.roundOne.length;
@@ -130,4 +134,3 @@ export class UserTableComponent {
     this.route.navigate(['loginpage']);
   }
 }
-

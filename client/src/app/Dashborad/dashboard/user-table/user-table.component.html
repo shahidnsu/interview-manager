@@ -58,9 +58,11 @@
     </div>
   </div>
 </div>
-<div *ngIf="febBatchNumbers || janBatchNumers || marBatchNumbers">
+<div *ngIf="
+    febBatchNumbers || janBatchNumbers || marBatchNumbers || junBatchNumbers
+  ">
   <app-user-line-chart [febBatchNumbers]="febBatchNumbers" [uniqueMonths]="uniqueMonths"
-    [janBatchNumbers]="janBatchNumers" [marBatchNumbers]="marBatchNumbers"></app-user-line-chart>
+    [janBatchNumbers]="janBatchNumbers" [marBatchNumbers]="marBatchNumbers"></app-user-line-chart>
 </div>
 <div class="prose-base flex justify-center mt-[10px]">
   <p class="text-sm text-black">number of students per month</p>

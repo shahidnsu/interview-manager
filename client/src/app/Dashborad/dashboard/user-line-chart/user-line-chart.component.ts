@@ -13,9 +13,6 @@ export class UserLineChartComponent {
   //charData: string[] = [this.febBatchNumbers.toString()];
   public chart: any;
   public LineChart: any;
-  
-
-
 
   createPieChart() {
     this.chart = new Chart('MyChart', {
@@ -31,7 +28,7 @@ export class UserLineChartComponent {
               this.febBatchNumbers.toString(),
               this.janBatchNumbers.toString(),
               this.marBatchNumbers.toString(),
-              this.janBatchNumbers.toString()
+              this.janBatchNumbers.toString(),
             ],
 
             backgroundColor: ['#58508d', '#ff6361', '#003f5c', '#ffa600'],
@@ -70,10 +67,10 @@ export class UserLineChartComponent {
           {
             label: 'Number of students per Month',
             data: [
-              this.febBatchNumbers.toString(),
               this.janBatchNumbers.toString(),
+              this.febBatchNumbers.toString(),
               this.marBatchNumbers.toString(),
-              '10',
+              this.janBatchNumbers.toString(),
             ],
 
             fill: false,
@@ -102,7 +99,7 @@ export class UserLineChartComponent {
       },
     });
   }
-  
+
   ngOnInit(): void {
     this.createPieChart();
     this.createLineChart();
